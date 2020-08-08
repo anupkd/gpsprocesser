@@ -14,9 +14,10 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 sched1 = BlockingScheduler()
 
-@sched1.scheduled_job('interval', minutes=3)
+@sched1.scheduled_job('interval', minutes=15)
 def timed_job():
-    print('This job is run every three minutes.')
+    print ("%s: %s" % ( 'Processing', time.ctime(time.time()) ))
+    process_trips()
 
 app = Flask(__name__)
 
