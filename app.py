@@ -12,9 +12,9 @@ import _thread
 
 from apscheduler.schedulers.blocking import BlockingScheduler
 
-sched = BlockingScheduler()
+sched1 = BlockingScheduler()
 
-@sched.scheduled_job('interval', minutes=3)
+@sched1.scheduled_job('interval', minutes=3)
 def timed_job():
     print('This job is run every three minutes.')
 
@@ -113,7 +113,7 @@ def process_trips():
     if conn is not None:
        conn.close()
 
-sched.start()
+sched1.start()
 #_thread.start_new_thread(startProcess,(30,))
 #if __name__ == '__main__':
     #getLocationDetails('55.396560661848646','25.27967442421421')
