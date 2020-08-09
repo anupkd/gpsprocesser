@@ -49,7 +49,7 @@ def getLocationDetails(_long,_lat):
     _resp = json.loads(call.text)
     if(len(_resp['features'])>0):
         return (_resp['features'][0]['properties']['label'] )
-    else
+    else:
         return 'Unknown'
 	
 def getDistance(locs):
