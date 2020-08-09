@@ -19,6 +19,10 @@ def timed_job():
     print ("%s: %s" % ( 'Processing', time.ctime(time.time()) ))
     process_trips()
 
+#@sched1.scheduled_job('cron', day_of_week='mon-fri', hour=17)
+def scheduled_job():
+    print('This job is run every weekday at 5pm.')
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -43,8 +47,11 @@ def getLocationDetails(_long,_lat):
     call = requests.get('https://api.openrouteservice.org/geocode/reverse?api_key=5b3ce3597851110001cf6248e29e876eaf39498bb0b0b2ad0863e216&point.lon='+_long+'&point.lat='+ _lat + '&size=0', headers=headers)
     #print(call.status_code, call.reason)
     _resp = json.loads(call.text)
-    return (_resp['features'][0]['properties']['label'] )
-
+    if(len(_resp['features'])>0):
+        return (_resp['features'][0]['properties']['label'] )
+    else
+        return 'Unknown'
+	
 def getDistance(locs):
     body = {"locations":locs,"metrics":["distance"],"units":"km"}
     print(locs)
