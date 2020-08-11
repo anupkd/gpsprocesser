@@ -203,7 +203,7 @@ def process_trips():
 
 sched1.start()
 #_thread.start_new_thread(startProcess,(30,))
-if __name__ == '__main__':
+#if __name__ == '__main__':
     #getLocationDetails('55.396560661848646','25.27967442421421')
 #    _thread.start_new_thread(startProcess,(30,))
     #getDistance([[76.94843,10.916860000000002],[76.6548,10.786738333333336]])
