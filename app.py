@@ -19,7 +19,7 @@ sched1 = BlockingScheduler()
 def timed_job():
     print ("%s: %s" % ( 'Processing', time.ctime(time.time()) ))
     #process_trips()
-    process_goole_trips
+    process_goole_trips()
 
 #@sched1.scheduled_job('cron', day_of_week='mon-fri', hour=17)
 def scheduled_job():
@@ -38,6 +38,7 @@ def do_something():
     print ("%s: %s" % ( 'Processing', time.ctime(time.time()) ))
     process_trips()
     event_schedule.enter(900, 1, do_something )
+    print ("%s: %s" % ( 'Processing done', time.ctime(time.time()) ))
 
 def startProcess(delay):
     event_schedule.enter(1, 1, do_something)
@@ -208,4 +209,4 @@ sched1.start()
 #    _thread.start_new_thread(startProcess,(30,))
     #getDistance([[76.94843,10.916860000000002],[76.6548,10.786738333333336]])
     #app.run(host='0.0.0.0')
-    #process_goole_trips()
+#    process_goole_trips()
