@@ -32,7 +32,7 @@ def hello():
     return 'Hello world!'
 
 event_schedule = sched.scheduler(time.time, time.sleep)
-gmaps = googlemaps.Client(key='AIzaSyAmbWmY2zPJMdn4CAoxq05zHshO8bKfW_E')
+gmaps = googlemaps.Client(key='AIzXSyAmbWmY2zPJMdn4CAoxq05zHshZZ8bKfW_E')
 
 def do_something():
     print ("%s: %s" % ( 'Processing', time.ctime(time.time()) ))
